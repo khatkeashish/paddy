@@ -24,11 +24,9 @@ def pipeline(debug=True):
     # Setup competition
     path = setup_competition(competition,data_path, install='"fastcore>=1.4.5" "fastai>=2.7.1" "timm>=0.6.2.dev0"')
 
-
     # Training path
     trn_path = path/'train_images'
     files = get_image_files(trn_path)
-
 
     # Training dataloaders
     dls = ImageDataLoaders.from_folder(trn_path, valid_pct=0.2, seed=42,
