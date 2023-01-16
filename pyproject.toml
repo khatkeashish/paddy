@@ -11,9 +11,17 @@ jupyter = "^1.0.0"
 notebook = "^6.5.2"
 fastkaggle = "^0.0.7"
 kaggle = "^1.5.12"
+timm = "^0.6.12"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+#[tool.pyright]
+#include = ["src"]
+#venv = ".venv"
+#executionEnvironments = [
+#  { root = "src" }
+#]
