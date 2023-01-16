@@ -21,8 +21,22 @@ def setup_competition(competition, data_path='', install=''):
             zipfile.ZipFile(f'{competition_dir}/{competition}.zip').extractall(str(f'{competition_dir}'))
         return path
 
-if __name__ == "__main__":
-    from configs import competition, data_path
-    path = setup_competition(competition, data_path, install='"fastcore>=1.4.5" "fastai>=2.7.1" "timm>=0.6.2.dev0"')
-    print(path)
-    print(type(path))
+def submit_kaggle():
+    from fastkaggle.core import iskaggle, push_notebook
+    from kaggle import api
+
+    from configs import competition, id, notebook_filename, title, username
+
+    if not iskaggle:
+        api.competition_submit_cli('subm.csv', 'initial rn26d 128px', competition)
+        push_notebook(
+            'khatkeashish', 
+            'paddy',
+            title='Paddy',
+            file='01_eda.ipynb',
+            competition=competition, 
+            private=False, 
+            gpu=True
+        )
+
+
